@@ -1,30 +1,12 @@
 // Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
 
-public class Kata {
+public class CreatePhoneNumber6kyu {
   public static String createPhoneNumber(int[] numbers) {
-    String output = "";
-    for (int i = 0; i <= numbers.length - 1; i++) {
-      output += appendSymbol(i) + numbers[i];
+    String phoneString = new String("(xxx) xxx-xxxx");
+    for (int i : numbers) {
+        phoneString = phoneString.replaceFirst("x", Integer.toString(i));
     }
-    
-    return output;
+    return phoneString;  
   }
   
-  public static String appendSymbol(int index) {
-    String symbol = "";
-    
-    switch(index) {
-      case 0:
-        symbol = "(";
-        break;
-      case 3:
-        symbol = ") ";
-        break;
-      case 6:
-        symbol = "-";
-        break;
-    }
-    
-    return symbol;
-  }
 }
